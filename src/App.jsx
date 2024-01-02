@@ -16,7 +16,7 @@ function App() {
   });
 
   return (
-    <div className="bg-zinc-50 w-full h-full flex flex-col items-center justify-around">
+    <div className=" w-full h-full flex flex-col items-center justify-around">
       <PictureHint data={{ data }} count={count}></PictureHint>
       <div className="mt-12 flex gap-32 flex-wrap justify-center">
         <div>

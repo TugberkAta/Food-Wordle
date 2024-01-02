@@ -1,7 +1,11 @@
 const PictureHint = ({ data, count }) => {
   data = data.data;
   return (
-    <div className="w-96 mt-10 rounded-md border-2 border-gray-500 relative">
+    <div
+      className={`w-96 mt-10 rounded-md border-2 border-gray-500 relative ${
+        count < 5 ? "bg-gray-800" : "bg-none"
+      }`}
+    >
       <svg
         className={`absolute w-20 m-auto inset-0 fill-gray-500 ${
           count >= 5 ? "invisible" : "visible"

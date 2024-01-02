@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const InputField = ({ data, count, setCount }) => {
   data = data.data;
   const [guess, setGuess] = useState("");
+  const [inputType, setInputType] = useState("");
+  const [className, setClassName] = useState("");
+
+  useEffect(() => {
+    if (className === "shake") {
+      const timer = setTimeout(() => {
+        setClassName("");
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [className]);
 
   function search(event) {
     if (event.keyCode === 13) {
@@ -22,11 +33,15 @@ const InputField = ({ data, count, setCount }) => {
       });
 
       if (matchingWords.length >= 2) {
+        setInputType(true);
+        setClassName("shake");
         alert("You won!");
         setCount(0);
       } else if (count === 5) {
         setCount(0);
       } else {
+        setInputType(false);
+        setClassName("shake");
         setCount(count + 1);
       }
       setGuess("");
@@ -36,7 +51,11 @@ const InputField = ({ data, count, setCount }) => {
   return (
     <>
       <input
-        className="px-2 border-2 rounded-sm border-gray-500 placeholder:text-gray-400"
+        className={`px-2 outline-none border-2 rounded-sm ${
+          inputType === false ? `wrong-answer ${className}` : "border-gray-500"
+        } ${
+          inputType === true ? ` right-answer ${className}` : "border-gray-500"
+        } placeholder:text-gray-400`}
         type="text"
         onKeyDown={search}
         value={guess}
