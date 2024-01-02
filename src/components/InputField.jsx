@@ -8,10 +8,12 @@ const InputField = ({ data, count, setCount }) => {
     if (event.keyCode === 13) {
       const guessWords = guess.toLowerCase().split(" ");
       const matchingWords = [];
-      const titleWords = data.recipes[0].title
+      const titleWords = data[0].foodName
         .replace(/[^a-z0-9\s]/gi, "")
         .toLowerCase()
         .split(" ");
+
+      console.log(titleWords);
 
       guessWords.forEach((word) => {
         if (titleWords.includes(word)) {
@@ -20,8 +22,9 @@ const InputField = ({ data, count, setCount }) => {
       });
 
       if (matchingWords.length >= 2) {
+        alert("You won!");
         setCount(0);
-      } else if (count === 3) {
+      } else if (count === 5) {
         setCount(0);
       } else {
         setCount(count + 1);
@@ -33,10 +36,12 @@ const InputField = ({ data, count, setCount }) => {
   return (
     <>
       <input
+        className="px-2 border-2 rounded-sm border-gray-500 placeholder:text-gray-400"
         type="text"
         onKeyDown={search}
         value={guess}
         onChange={(e) => setGuess(e.target.value)}
+        placeholder="Enter Guess"
       />
     </>
   );
