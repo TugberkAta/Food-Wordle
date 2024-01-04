@@ -1,4 +1,4 @@
-const StepsHint = ({ data, count }) => {
+const StepsHint = ({ data, count, displayMode }) => {
   data = data.data;
   return (
     <div>
@@ -9,7 +9,7 @@ const StepsHint = ({ data, count }) => {
             key={index}
             className={`blurred-hint ${
               count <= 3 ? "blur-sm w-80 mb-2" : "blur-none w-80 mb-2"
-            }`}
+            } ${displayMode ? "text-gray-400" : "text-black"}`}
           >
             {index + 1 + "- " + e}
           </li>

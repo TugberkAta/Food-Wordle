@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const InputField = ({ data, count, setCount }) => {
+const InputField = ({ data, count, setCount, setGameState }) => {
   data = data.data;
   const [guess, setGuess] = useState("");
   const [inputType, setInputType] = useState("");
@@ -10,7 +10,7 @@ const InputField = ({ data, count, setCount }) => {
     if (className === "shake") {
       const timer = setTimeout(() => {
         setClassName("");
-      }, 2000);
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [className]);

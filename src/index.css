@@ -20,7 +20,7 @@
   }
 }
 
-body {
+div.dark-mode {
   background-image: url("./assets/layered-waves-haikei-2.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -28,9 +28,12 @@ body {
   height: 100vh;
 }
 
-p,
-li {
-  color: white;
+div.light-mode {
+  background-image: url("./assets/layered-waves-haikei-4.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
 }
 
 h3 {
