@@ -1,5 +1,4 @@
 const foodList = [];
-const pastFoodList = [];
 
 function FoodObject(
   foodName,
@@ -60,15 +59,4 @@ createFood(
   "285-380 calories"
 );
 
-console.log(foodList);
-console.log(pastFoodList);
-
-async function setNewFood() {
-  if (foodList.length > 1) {
-    pastFoodList.push(foodList[0]);
-    console.log(foodList.length);
-    foodList.shift();
-  } else return;
-}
-
-export { foodList, setNewFood };
+export { foodList };

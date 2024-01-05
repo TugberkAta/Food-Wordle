@@ -24,8 +24,6 @@ const InputField = ({ data, count, setCount, setGameState }) => {
         .toLowerCase()
         .split(" ");
 
-      console.log(titleWords);
-
       guessWords.forEach((word) => {
         if (titleWords.includes(word)) {
           matchingWords.push(word);
@@ -35,10 +33,9 @@ const InputField = ({ data, count, setCount, setGameState }) => {
       if (matchingWords.length >= 2) {
         setInputType(true);
         setClassName("shake");
-        alert("You won!");
-        setCount(0);
+        setGameState("won");
       } else if (count === 5) {
-        setCount(0);
+        setGameState("lost");
       } else {
         setInputType(false);
         setClassName("shake");

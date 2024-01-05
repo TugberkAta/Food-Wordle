@@ -1,18 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputField from "./components/InputField";
 import RedCross from "./components/RedCross";
-import CuisineHint from "./components/CuisineHint";
-import StepsHint from "./components/StepsHint";
-import PictureHint from "./components/PictureHint";
+import CuisineHint from "./components/hints/CuisineHint";
+import StepsHint from "./components/hints/StepsHint";
+import PictureHint from "./components/hints/PictureHint";
 import { foodList } from "./data/database";
-import CaloriesHint from "./components/CaloriesHint";
-import TriviaHint from "./components/TriviaHint";
+import CaloriesHint from "./components/hints/CaloriesHint";
+import TriviaHint from "./components/hints/TriviaHint";
 import DarkModeSwitch from "./components/DarkModeSwitch";
+import ScoreBoard from "./components/summary-panel/ScoreBoard";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [gameState, setGameState] = useState();
-  const [displayMode, setDisplayMode] = useState("true");
+  const [gameState, setGameState] = useState("");
+  const [displayMode, setDisplayMode] = useState(
+    localStorage.getItem("displayMode") === "true"
+  );
+
+  useEffect(() => {
+    console.log(displayMode);
+    localStorage.setItem("displayMode", displayMode);
+  }, [displayMode]);
 
   const data = foodList;
 
@@ -56,10 +64,18 @@ function App() {
         <InputField
           data={{ data }}
           count={count}
-          setCount={setCount}
           setGameState={setGameState}
+          setCount={setCount}
         />
       </div>
+      <ScoreBoard
+        data={{ data }}
+        gameState={gameState}
+        displayMode={displayMode}
+        setGameState={setGameState}
+        setCount={setCount}
+        count={count}
+      ></ScoreBoard>
     </div>
   );
 }

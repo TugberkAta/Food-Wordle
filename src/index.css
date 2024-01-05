@@ -29,11 +29,25 @@ div.dark-mode {
 }
 
 div.light-mode {
-  background-image: url("./assets/layered-waves-haikei-4.svg");
+  background-image: url("./assets/layered-waves-haikei-5.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
+}
+
+.score-screen.dark {
+  background-image: url("./assets/circle-scatter-haikei-2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.score-screen.light {
+  background-image: url("./assets/circle-scatter-haikei-2.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 h3 {
