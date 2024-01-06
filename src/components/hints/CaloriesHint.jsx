@@ -2,7 +2,7 @@ const CaloriesHint = ({ data, count, displayMode }) => {
   data = data.data;
   return (
     <div className="border-b-2 border-gray-400 w-fit">
-      <h3 className=" font-light text-sm  text-gray-400">Calories</h3>
+      <h3 className="mb-1 font-light text-sm  text-gray-400">Calories</h3>
       <p
         className={`blurred-hint ${
           count <= 0

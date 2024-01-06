@@ -3,20 +3,18 @@ import React, { useState, useEffect } from "react";
 const Countdown = () => {
   const calculateTimeLeft = () => {
     const now = new Date();
-    // Convert now to UTC
-    const nowUTC = Date.UTC(
-      now.getUTCFullYear(),
-      now.getUTCMonth(),
-      now.getUTCDate(),
-      now.getUTCHours(),
-      now.getUTCMinutes(),
-      now.getUTCSeconds()
-    );
-    const tomorrowUTC = new Date(nowUTC).setDate(
-      new Date(nowUTC).getDate() + 1
-    );
-    const midnightUTC = new Date(tomorrowUTC).setHours(0, 0, 0, 0);
-    const difference = midnightUTC - nowUTC;
+    // Use UTC methods to get the current UTC date and time
+    const year = now.getUTCFullYear();
+    const month = now.getUTCMonth();
+    const day = now.getUTCDate();
+    const hours = now.getUTCHours();
+    const minutes = now.getUTCMinutes();
+    const seconds = now.getUTCSeconds();
+
+    // Calculate the next day's midnight in UTC
+    const midnightUTC = Date.UTC(year, month, day + 1);
+    const difference =
+      midnightUTC - Date.UTC(year, month, day, hours, minutes, seconds);
 
     let timeLeft = {};
 

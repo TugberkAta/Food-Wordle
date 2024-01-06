@@ -13,6 +13,7 @@ import ScoreBoard from "./components/summary-panel/ScoreBoard";
 function App() {
   const [count, setCount] = useState(0);
   const [gameState, setGameState] = useState("");
+  const [inputType, setInputType] = useState("");
   const [displayMode, setDisplayMode] = useState(
     localStorage.getItem("displayMode") === "true"
   );
@@ -26,8 +27,10 @@ function App() {
 
   return (
     <div
-      className={`w-full h-full flex flex-col items-center justify-around ${
-        displayMode ? "dark-mode" : "light-mode"
+      className={`w-full flex flex-col items-center justify-around bg-no-repeat bg-center bg-cover h-screen ${
+        displayMode
+          ? "bg-[url('./assets/layered-waves-haikei-2.svg')]"
+          : "bg-[url('./assets/layered-waves-haikei-5.svg')]"
       }`}
     >
       <DarkModeSwitch
@@ -66,6 +69,8 @@ function App() {
           count={count}
           setGameState={setGameState}
           setCount={setCount}
+          setInputType={setInputType}
+          inputType={inputType}
         />
       </div>
       <ScoreBoard
@@ -75,6 +80,7 @@ function App() {
         setGameState={setGameState}
         setCount={setCount}
         count={count}
+        setInputType={setInputType}
       ></ScoreBoard>
     </div>
   );

@@ -20,50 +20,20 @@
   }
 }
 
-div.dark-mode {
-  background-image: url("./assets/layered-waves-haikei-2.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
+@keyframes pop {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
 }
 
-div.light-mode {
-  background-image: url("./assets/layered-waves-haikei-5.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-}
-
-.score-screen.dark {
-  background-image: url("./assets/circle-scatter-haikei-2.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.score-screen.light {
-  background-image: url("./assets/circle-scatter-haikei-2.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-h3 {
-  margin-bottom: 0.3rem;
-}
-
-.blurred-hint {
-  transition: 300ms;
-}
-
-.wrong-answer {
-  border-color: red;
-}
-
-.right-answer {
-  border-color: aquamarine;
+.pop {
+  animation: pop 500ms linear;
 }
 
 .shake {

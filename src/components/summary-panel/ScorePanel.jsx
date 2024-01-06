@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import ScoreBar from "./ScoreBar";
 
 const ScorePanel = ({ count, gameState }) => {
-  // Initialize state from local storage or set to 0 if not available
   const [score1, setScore1] = useState(
     localStorage.getItem("score1")
       ? parseInt(localStorage.getItem("score1"))

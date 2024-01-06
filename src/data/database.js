@@ -36,19 +36,7 @@ function createFood(
 }
 
 createFood(
-  "NewYork Style Pizza",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/New_York_Pizza_Slices.png/440px-New_York_Pizza_Slices.png",
-  [
-    "Combine flour, sugar, salt, and yeast in bowl of food processor. Pulse 3 to 4 times to incorporate.",
-    "Add water and olive oil. Run food processor until mixture forms ball that rides around the bowl above the blade, about 15 seconds...",
-  ],
-  "New York City, New York",
-  "Average american eats 46 serving of this food every year.",
-  "285-380 calories"
-);
-
-createFood(
-  "NewYork Style Pizza",
+  "Baklava",
   "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/New_York_Pizza_Slices.png/440px-New_York_Pizza_Slices.png",
   [
     "Combine flour, sugar, salt, and yeast in bowl of food processor. Pulse 3 to 4 times to incorporate.",

@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 
-const InputField = ({ data, count, setCount, setGameState }) => {
+const InputField = ({
+  data,
+  count,
+  setCount,
+  setGameState,
+  setInputType,
+  inputType,
+}) => {
   data = data.data;
   const [guess, setGuess] = useState("");
-  const [inputType, setInputType] = useState("");
   const [className, setClassName] = useState("");
 
   useEffect(() => {
@@ -30,12 +36,18 @@ const InputField = ({ data, count, setCount, setGameState }) => {
         }
       });
 
-      if (matchingWords.length >= 2) {
+      if (
+        matchingWords.length >= 2 ||
+        titleWords.toString() === matchingWords.toString()
+      ) {
         setInputType(true);
-        setClassName("shake");
+        setClassName("pop");
         setGameState("won");
       } else if (count === 5) {
         setGameState("lost");
+      } else if (matchingWords.length === 1) {
+        setInputType("close");
+        setClassName("shake");
       } else {
         setInputType(false);
         setClassName("shake");
@@ -49,9 +61,17 @@ const InputField = ({ data, count, setCount, setGameState }) => {
     <>
       <input
         className={`px-2 outline-none border-2 rounded-sm ${
-          inputType === false ? `wrong-answer ${className}` : "border-gray-500"
+          inputType === false
+            ? `border-red-500 ${className}`
+            : "border-gray-500"
         } ${
-          inputType === true ? ` right-answer ${className}` : "border-gray-500"
+          inputType === true
+            ? ` border-green-400 ${className}`
+            : "border-gray-500"
+        } ${
+          inputType === "close"
+            ? ` border-yellow-500 ${className}`
+            : "border-gray-500"
         } placeholder:text-gray-400`}
         type="text"
         onKeyDown={search}
