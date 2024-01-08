@@ -9,6 +9,8 @@ import CaloriesHint from "./components/hints/CaloriesHint";
 import TriviaHint from "./components/hints/TriviaHint";
 import DarkModeSwitch from "./components/DarkModeSwitch";
 import ScoreBoard from "./components/summary-panel/ScoreBoard";
+import Credit from "./components/Credit";
+import Header from "./components/Header";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -33,10 +35,13 @@ function App() {
           : "bg-[url('./assets/layered-waves-haikei-5.svg')]"
       }`}
     >
-      <DarkModeSwitch
-        setDisplayMode={setDisplayMode}
-        displayMode={displayMode}
-      ></DarkModeSwitch>
+      <div>
+        <Header></Header>
+        <DarkModeSwitch
+          setDisplayMode={setDisplayMode}
+          displayMode={displayMode}
+        ></DarkModeSwitch>
+      </div>
       <PictureHint data={{ data }} count={count}></PictureHint>
       <div className="mt-12 flex gap-32 flex-wrap justify-center">
         <div>
@@ -82,6 +87,7 @@ function App() {
         count={count}
         setInputType={setInputType}
       ></ScoreBoard>
+      <Credit displayMode={displayMode}></Credit>
     </div>
   );
 }

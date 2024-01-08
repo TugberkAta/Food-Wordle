@@ -1,10 +1,12 @@
-const ScoreBar = ({ scoreProgression, index }) => {
+const ScoreBar = ({ scoreProgression, index, score }) => {
   return (
-    <div className="h-40 w-6 flex flex-col justify-end">
+    <div className="h-60 w-6 flex flex-col justify-end">
       <div
-        className="bg-green-400 border-black border-b-8"
+        className="bg-green-400 border-black border-b-8 flex justify-center items-end"
         style={{ height: `${scoreProgression}%` }}
-      ></div>
+      >
+        <p className="text-black text-xs">{score === 0 ? "" : score}</p>
+      </div>
       {index}
     </div>
   );

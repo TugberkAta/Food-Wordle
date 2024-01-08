@@ -102,12 +102,36 @@ const ScorePanel = ({ count, gameState }) => {
         <p className="text-xs">You got it in {count + 1} </p>
       )}
       <div className="flex gap-3">
-        <ScoreBar scoreProgression={calculateProgression(score1)} index={1} />
-        <ScoreBar scoreProgression={calculateProgression(score2)} index={2} />
-        <ScoreBar scoreProgression={calculateProgression(score3)} index={3} />
-        <ScoreBar scoreProgression={calculateProgression(score4)} index={4} />
-        <ScoreBar scoreProgression={calculateProgression(score5)} index={5} />
-        <ScoreBar scoreProgression={calculateProgression(score6)} index={6} />
+        <ScoreBar
+          scoreProgression={calculateProgression(score1)}
+          score={score1}
+          index={1}
+        />
+        <ScoreBar
+          scoreProgression={calculateProgression(score2)}
+          score={score2}
+          index={2}
+        />
+        <ScoreBar
+          scoreProgression={calculateProgression(score3)}
+          score={score3}
+          index={3}
+        />
+        <ScoreBar
+          scoreProgression={calculateProgression(score4)}
+          score={score4}
+          index={4}
+        />
+        <ScoreBar
+          scoreProgression={calculateProgression(score5)}
+          score={score5}
+          index={5}
+        />
+        <ScoreBar
+          scoreProgression={calculateProgression(score6)}
+          score={score6}
+          index={6}
+        />
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ function createFood(
 }
 
 createFood(
-  "Baklava",
+  "Newyork style pizza",
   "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/New_York_Pizza_Slices.png/440px-New_York_Pizza_Slices.png",
   [
     "Combine flour, sugar, salt, and yeast in bowl of food processor. Pulse 3 to 4 times to incorporate.",
